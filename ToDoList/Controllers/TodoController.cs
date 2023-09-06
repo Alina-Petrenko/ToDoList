@@ -62,32 +62,19 @@ namespace ToDoList.Controllers
         }
 
         /// <summary>
-        /// Displays the confirmation page for deleting a to-do item.
+        /// Deletes a to-do item.
         /// </summary>
         /// <param name="id">The ID of the to-do item to delete.</param>
         /// <returns>The confirmation view for deleting the selected task.</returns>
 
         [HttpGet]
-        public IActionResult Delete(Guid id)
+        public IActionResult Delete(int id)
         {
             var todoItem = _context.Items.Find(id);
             if (todoItem == null)
             {
                 return NotFound();
             }
-
-            return View(todoItem);
-        }
-
-        /// <summary>
-        /// Handles the deletion of a to-do item.
-        /// </summary>
-        /// <param name="id">The ID of the to-do item to delete.</param>
-        /// <returns>Redirects to the index page after deletion.</returns>
-        [HttpPost, ActionName("Delete")]
-        public IActionResult DeleteConfirmed(Guid id)
-        {
-            var todoItem = _context.Items.Find(id);
             if (todoItem != null)
             {
                 _context.Items.Remove(todoItem);

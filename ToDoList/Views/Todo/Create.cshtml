@@ -1,0 +1,15 @@
+﻿@model ToDoList.Models.TodoItem
+
+<h2>Add New Task</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="TaskName">Task Name</label>
+        <input asp-for="TaskName" class="form-control" />
+        <span asp-validation-for="TaskName" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Task</button>
+    <a asp-action="Index">Cancel</a>
+</form>
+
+<div asp-validation-summary="All" class="text-danger"></div>

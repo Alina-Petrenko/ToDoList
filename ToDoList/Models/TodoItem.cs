@@ -12,7 +12,7 @@ namespace ToDoList.Models
         /// Gets or sets the unique identifier for the to-do item.
         /// </summary>
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the name or description of the to-do task.
